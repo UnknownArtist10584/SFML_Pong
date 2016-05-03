@@ -62,7 +62,5 @@ void Ball::SetBallAngle(float angle)
     }
 }
 
-// Test comment here
-
 
 
