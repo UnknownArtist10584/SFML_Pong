@@ -26,7 +26,7 @@ int main()
 
     sf::Text score;
     sf::Font font;
-    font.loadFromFile("assets/AmericanTypewriter.ttc");
+    font.loadFromFile("assets/AmericanTypewriter.ttf");
     score.setFont(font);
     score.setString(boost::lexical_cast<string>(player1.score) + " | " + boost::lexical_cast<string>(player2.score) );
     score.setOrigin(score.getGlobalBounds().width/2, score.getGlobalBounds().width/2);
@@ -79,7 +79,20 @@ int main()
         {
             ball.SetBallAngle(ball.ballAngle + 180);
         }
-        
+
+        // Check for collisions with the walls
+
+        if (ball.DidCollide(top_wall))
+        {
+            ball.SetBallAngle(ball.ballAngle + 90);
+        }
+
+        if (ball.DidCollide(bottom_wall))
+        {
+            ball.SetBallAngle(ball.ballAngle + 90);
+        }
+
+
         // Move the ball at each frame
         ball.Move();
 

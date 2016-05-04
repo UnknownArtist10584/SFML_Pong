@@ -15,7 +15,7 @@ Ball::Ball(sf::Vector2u window_size)
     ball.setOrigin(ball.getGlobalBounds().width/2, ball.getGlobalBounds().height/2);
     ball.setPosition(window_size.x/2,  window_size.y/2);
 
-    ballAngle = 180;
+    ballAngle = 60;
 
     // TODO: Make the ballAngle random and also make sure it isn't too steep
 
@@ -32,7 +32,7 @@ void Ball::Move()
 
 bool Ball::DidCollide(Player player)
 {
-    if (true)
+    if (player.paddle.getGlobalBounds().intersects(ball.getGlobalBounds()))
     {
         return  true;
     }
@@ -45,21 +45,21 @@ bool Ball::DidCollide(Player player)
 
 bool Ball::DidCollide(Wall wall)
 {
-    return false;
+   if (wall.wall.getGlobalBounds().intersects(ball.getGlobalBounds()))
+   {
+       return true;
+   }
+
+   else
+   {
+       return false;
+   }
 }
 
 
 void Ball::SetBallAngle(float angle)
 {
-    if (angle < 0)
-    {
-        ballAngle = 360 + angle;
-    }
-
-    else if (angle > 360)
-    {
-        ballAngle = 360 - angle;
-    }
+    ballAngle = angle;
 }
 
 
