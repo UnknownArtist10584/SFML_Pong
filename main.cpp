@@ -69,6 +69,9 @@ int main()
         }
 
         // Check for collisions with the paddles
+        // TODO: Calculate the angle of incidence and reflection for the new ballAngle
+        // TODO: Check whether the paddle is moving to add spin
+        // TODO: Decide what happens if the ball hits the bottom or top face of the paddle
 
         if (ball.DidCollide(player1))
         {
