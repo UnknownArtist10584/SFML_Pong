@@ -27,6 +27,11 @@ public:
     void SetBallAngle(float angle);
     float velocity = 10;
     double ballAngle;
+
+    enum horizontal_direction{left, right};
+    enum vertical_direction{up, down};
+    horizontal_direction horizontalDirection = right;
+    vertical_direction verticalDirection = down;
 };
 
 

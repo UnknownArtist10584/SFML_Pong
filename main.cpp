@@ -26,7 +26,7 @@ int main()
 
     sf::Text score;
     sf::Font font;
-    font.loadFromFile("assets/AmericanTypewriter.ttf");
+    font.loadFromFile("assets/AmericanTypewriter.ttc");
     score.setFont(font);
     score.setString(boost::lexical_cast<string>(player1.score) + " | " + boost::lexical_cast<string>(player2.score) );
     score.setOrigin(score.getGlobalBounds().width/2, score.getGlobalBounds().width/2);
