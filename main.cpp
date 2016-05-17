@@ -75,24 +75,41 @@ int main()
 
         if (ball.DidCollide(player1))
         {
-            ball.SetBallAngle(ball.ballAngle + 180);
+            // TODO: Add movement with left and right instead of angles
+            // TODO: Find out what "Taking enum type from pointer" means
+
+            ball.horizontal_direction = 1;
         }
 
         if (ball.DidCollide(player2))
         {
-            ball.SetBallAngle(ball.ballAngle + 180);
+           ball.horizontal_direction = -1;
         }
 
         // Check for collisions with the walls
 
         if (ball.DidCollide(top_wall))
         {
-            ball.SetBallAngle(ball.ballAngle + 90);
+            if (ball.vertical_direction == 1)
+            {
+                ball.vertical_direction = -1;
+            }
+            else
+            {
+                ball.vertical_direction = 1;
+            }
         }
 
         if (ball.DidCollide(bottom_wall))
         {
-            ball.SetBallAngle(ball.ballAngle + 90);
+            if (ball.vertical_direction == 1)
+            {
+                ball.vertical_direction = -1;
+            }
+            else
+            {
+                ball.vertical_direction = 1;
+            }
         }
 
 

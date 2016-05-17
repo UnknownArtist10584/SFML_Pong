@@ -19,6 +19,11 @@ Ball::Ball(sf::Vector2u window_size)
 
     // TODO: Make the ballAngle random and also make sure it isn't too steep
 
+    vertical_direction = 1;
+    horizontal_direction = 1;
+
+    // TODO: Randomize vertical and horizontal direction variables
+
 
 }
 
@@ -33,37 +38,38 @@ void Ball::Move()
 
     position = ball.getPosition();
 
-    if (horizontalDirection == right)
+    if (horizontal_direction == 1)
     {
-        if (verticalDirection == up)
+        if (vertical_direction == 1)
         {
             position.x += std::cos(ballAngle * PI/180) * velocity;
             position.y -= std::sin(ballAngle * PI/180) * velocity;
         }
 
-        if (verticalDirection == down)
+        if (vertical_direction == -1)
         {
             position.x += std::cos(ballAngle * PI/180) * velocity;
             position.y += std::sin(ballAngle * PI/180) * velocity;
         }
     }
 
-    if (horizontalDirection == left)
+    if (horizontal_direction == -1)
     {
-        if (verticalDirection == up)
+        if (vertical_direction == 1)
         {
             position.x -= std::cos(ballAngle * PI/180) * velocity;
             position.y -= std::sin(ballAngle * PI/180) * velocity;
         }
 
-        if (verticalDirection == down)
+        if (vertical_direction == -1)
         {
             position.x -= std::cos(ballAngle * PI/180) * velocity;
             position.y += std::sin(ballAngle * PI/180) * velocity;
         }
 
-        ball.setPosition(position);
     }
+
+    ball.setPosition(position);
 
 }
 

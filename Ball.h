@@ -21,17 +21,23 @@ public:
     Ball(sf::Vector2u window_size);
     sf::RectangleShape ball;
     sf::Vector2f position;
+    float velocity = 10;
+    double ballAngle;
+
+    /*
+    enum horizontal_direction{left, right};
+    enum vertical_direction{up, down};
+    horizontal_direction horizontalDirection;
+    vertical_direction verticalDirection;
+    */
+
+    int horizontal_direction;
+    int vertical_direction;
+
     void Move();
     bool DidCollide(Player player);
     bool DidCollide(Wall wall);
     void SetBallAngle(float angle);
-    float velocity = 10;
-    double ballAngle;
-
-    enum horizontal_direction{left, right};
-    enum vertical_direction{up, down};
-    horizontal_direction horizontalDirection = right;
-    vertical_direction verticalDirection = down;
 };
 
 
