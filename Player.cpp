@@ -31,17 +31,17 @@ void Player::MovePaddle(sf::Keyboard::Key direction, sf::Vector2u window_size)
 {
     if (direction == up_control)
     {
-        if (paddle.getPosition().y - paddle.getSize().y/2 != 0)
+        if (paddle.getPosition().y - paddle.getSize().y/2 > 0)
         {
-            paddle.move(0, -5);
+            paddle.move(0, -10);
         }
     }
 
     if (direction == down_control)
     {
-        if (paddle.getPosition().y + paddle.getSize().y/2 != window_size.y)
+        if (paddle.getPosition().y + paddle.getSize().y/2 < window_size.y)
         {
-            paddle.move(0, 5);
+            paddle.move(0, 10);
         }
     }
 }

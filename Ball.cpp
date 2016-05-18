@@ -105,5 +105,13 @@ void Ball::SetBallAngle(float angle)
     ballAngle = angle;
 }
 
+void Ball::ResetBall(sf::Vector2u window_size)
+{
+    ball.setPosition(window_size.x/2, window_size.y/2);
+    // TODO: Generate random direction for ball
+}
+
+
+
 
 

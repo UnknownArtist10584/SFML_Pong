@@ -83,7 +83,8 @@ int main()
 
         if (ball.DidCollide(player2))
         {
-           ball.horizontal_direction = -1;
+            ball.horizontal_direction = -1;
+
         }
 
         // Check for collisions with the walls
@@ -111,10 +112,27 @@ int main()
                 ball.vertical_direction = 1;
             }
         }
+        
+        
+        // Check if the ball is out of bounds ( Goal scored )
+        
+        if (ball.ball.getPosition().x < 0)      // Player 2 has scored
+        {
+            player2.score ++;
+            ball.ResetBall(window.getSize());
+        }
 
+        if (ball.ball.getPosition().x > window.getSize().x)      // Player 1 has scored
+        {
+            player1.score ++;
+            ball.ResetBall(window.getSize());
+        }
 
         // Move the ball at each frame
         ball.Move();
+
+        // Update the score
+        score.setString(boost::lexical_cast<string>(player1.score) + " | " + boost::lexical_cast<string>(player2.score) );
 
         // Draw all the objects to the screen
 

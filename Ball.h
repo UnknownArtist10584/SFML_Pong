@@ -21,7 +21,7 @@ public:
     Ball(sf::Vector2u window_size);
     sf::RectangleShape ball;
     sf::Vector2f position;
-    float velocity = 10;
+    float velocity = 20;
     double ballAngle;
 
     /*
@@ -31,12 +31,13 @@ public:
     vertical_direction verticalDirection;
     */
 
-    int horizontal_direction;
-    int vertical_direction;
+    int horizontal_direction;           // 1 -> right, -1 -> left
+    int vertical_direction;             // 1 -> up, -1 -> down
 
     void Move();
     bool DidCollide(Player player);
     bool DidCollide(Wall wall);
+    void ResetBall(sf::Vector2u window_size);
     void SetBallAngle(float angle);
 };
 
