@@ -68,11 +68,20 @@ int main()
             }
         }
 
+        if (player1.score == 10)
+        {
+            game_state = 3;
+        }
+
+        if (player2.score == 10)
+        {
+            game_state = 4;
+        }
+
         if (game_state == 1)
         {
             // Play the game
             // Check for user input and move the paddles accordingly
-            // TODO: Add "isPlaying" variable to add pause functionality
 
             if (sf::Keyboard::isKeyPressed(player1.up_control))
             {
@@ -183,9 +192,35 @@ int main()
             pause_text.setCharacterSize(30);
             pause_text.setPosition(window.getSize().x/2 - pause_text.getGlobalBounds().width/2,
                                    window.getSize().y/2 - pause_text.getGlobalBounds().height/2);
-
+g
             window.clear();
             window.draw(pause_text);
+            window.display();
+        }
+
+        if (game_state == 3)
+        {
+            sf::Text game_won_text;
+            game_won_text.setFont(font);
+            game_won_text.setCharacterSize(30);
+            game_won_text.setString("Player 1 wins");
+            game_won_text.setPosition(window.getSize().x/2 - game_won_text.getGlobalBounds().width/2,
+                                      window.getSize().y/2 - game_won_text.getGlobalBounds().height/2);
+            window.clear();
+            window.draw(game_won_text);
+            window.display();
+        }
+
+        if (game_state == 4)
+        {
+            sf::Text game_won_text;
+            game_won_text.setFont(font);
+            game_won_text.setCharacterSize(30);
+            game_won_text.setString("Player 2 wins");
+            game_won_text.setPosition(window.getSize().x/2 - game_won_text.getGlobalBounds().width/2,
+                                      window.getSize().y/2 - game_won_text.getGlobalBounds().height/2);
+            window.clear();
+            window.draw(game_won_text);
             window.display();
         }
     }

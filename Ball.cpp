@@ -11,7 +11,7 @@ float deltaTime;
 
 Ball::Ball(sf::Vector2u window_size)
 {
-    ball.setSize( sf::Vector2f(50, 50) );
+    ball.setRadius(25);
     ball.setOrigin(ball.getGlobalBounds().width/2, ball.getGlobalBounds().height/2);
     ball.setPosition(window_size.x/2,  window_size.y/2);
 

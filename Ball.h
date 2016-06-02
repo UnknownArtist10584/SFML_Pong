@@ -19,7 +19,7 @@ class Ball
 {
 public:
     Ball(sf::Vector2u window_size);
-    sf::RectangleShape ball;
+    sf::CircleShape ball;
     sf::Vector2f position;
     float velocity = 20;
     double ballAngle;
